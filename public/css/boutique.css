@@ -1,0 +1,45 @@
+/* ======== About Section ======== */
+
+#about {
+    display: flex;
+    justify-content: space-between;
+    gap: 5rem;
+}
+
+#about img {
+    border-radius: 0.7rem;
+    object-fit: cover;
+    width: 50%;
+    max-width: 500px;
+}
+
+@media screen and (max-width: 1280px) {
+    #about img {
+        display: none;
+    }
+}
+
+#about h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+#about p {
+    line-height: 1.5rem;
+    margin: 3rem 0 0 0;
+    font-size: 1.3rem;
+    line-height: 2rem;
+    text-align: justify;
+}
+
+#about a {
+    width: fit-content;
+}
+
+.desc p {
+  line-height: 1.5rem;
+  margin: 1rem 0;
+  font-size: 1.3rem;
+  line-height: 2rem;
+  text-align: justify;
+}

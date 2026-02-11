@@ -8,6 +8,7 @@ const router = express.Router();
 
 router.get("/", mainController.homePage);
 router.get("/catalogue", catalogController.catalogList);
+router.get("/catalogue/:id", catalogController.catalogProduct);
 router.get("/boutique", mainController.boutiquePage)
 
 export default router;

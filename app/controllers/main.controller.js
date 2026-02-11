@@ -4,7 +4,7 @@ const mainController = {
   }, 
 
   boutiquePage: (req,res) => {
-    res.render("boutique");
+    res.render("boutique", { css: "boutique"});
   }
 }
 
