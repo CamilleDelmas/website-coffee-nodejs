@@ -1,0 +1,30 @@
+{
+  "name": "sb04-ocoffee-camilledelmas",
+  "version": "1.0.0",
+  "description": "## Information du projet",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/O-clock-Helsinki/SB04-ocoffee-CamilleDelmas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/O-clock-Helsinki/SB04-ocoffee-CamilleDelmas/issues"
+  },
+  "homepage": "https://github.com/O-clock-Helsinki/SB04-ocoffee-CamilleDelmas#readme",
+  "dependencies": {
+    "dotenv": "^17.2.4",
+    "ejs": "^4.0.1",
+    "express": "^5.2.1"
+  }
+}
