@@ -13,11 +13,7 @@
     max-width: 500px;
 }
 
-@media screen and (max-width: 1280px) {
-    #about img {
-        display: none;
-    }
-}
+
 
 #about h1 {
     font-size: 2.5rem;
@@ -40,10 +36,36 @@
     height: 200px;
 }
 
+.desc {
+    width: 80%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
 .desc p {
   line-height: 1.5rem;
   margin: 1rem 0;
   font-size: 1.3rem;
   line-height: 2rem;
   text-align: justify;
+}
+
+.desc img {
+    border-radius: 0.7rem;
+    object-fit: cover;
+    width: 100%;
+    max-height:300px;
+}
+
+.desc h2 {
+    margin-block-end: 1rem;
+}
+
+@media screen and (max-width: 1280px) {
+    #about img {
+        display: none;
+    }
+    .desc {
+    width: 100%;
+}
 }
