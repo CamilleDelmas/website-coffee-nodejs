@@ -1,0 +1,38 @@
+.button {
+  width: max-content;
+  margin: 0 auto 4rem auto;
+}
+
+#product h1 {
+  padding: 1rem;
+  background-color: var(--color-dark);
+  color: var(--color-cream);
+  border-radius: 0.5rem 0.5rem 0 0;
+  text-align: center;
+  font-size: 2rem;
+}
+
+#product img {
+  height: 20rem;
+  width: 100%;
+  object-fit: cover;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+#product article div {
+  padding: 2rem;
+  text-align: end;
+}
+
+#product article h2 {
+  margin-bottom: 1rem;
+}
+
+#product article a {
+  margin-top: 1rem;
+}
+
+#product button {
+  margin: 2rem auto 0 auto;
+}

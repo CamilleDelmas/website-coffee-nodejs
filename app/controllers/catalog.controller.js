@@ -5,7 +5,7 @@ const catalogController = {
   
   catalogProduct: (req,res) => {
     
-    res.render("product")
+    res.render("product", {css:'product'})
   }
 }
 
