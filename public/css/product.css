@@ -20,19 +20,11 @@
   border-bottom-right-radius: 0.5rem;
 }
 
-#product article div {
+#product div {
   padding: 2rem;
   text-align: end;
 }
 
-#product article h2 {
-  margin-bottom: 1rem;
-}
-
 #product article a {
   margin-top: 1rem;
-}
-
-#product button {
-  margin: 2rem auto 0 auto;
 }
