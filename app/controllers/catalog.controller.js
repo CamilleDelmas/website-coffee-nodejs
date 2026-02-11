@@ -12,6 +12,7 @@ const catalogController = {
           console.log(error);
           res.status(500).send(error.message);
       }
+      res.render("catalog", {css:'catalog', coffees});
   },
   
   catalogProduct: (req,res) => {
