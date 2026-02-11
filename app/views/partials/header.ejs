@@ -21,13 +21,12 @@
   <!-- <script defer src="/js/catalog.js"></script> -->
 
   <!-- Style -->
-  <link rel="stylesheet" href="/css/home.css">
-  <link rel="stylesheet" href="/css/<%= css %>.css">
+  <link rel="stylesheet" href="/css/<%= locals.css ? `${css}`:`home` %>.css">
 </head>
 
 <body>
     <header>
-    <a href="#">
+    <a href="/">
       <img src="/images/logo.svg" alt="logo oCoffee">
       oCoffee
     </a>
