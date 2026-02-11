@@ -36,6 +36,10 @@
     width: fit-content;
 }
 
+#map {
+    height: 200px;
+}
+
 .desc p {
   line-height: 1.5rem;
   margin: 1rem 0;
