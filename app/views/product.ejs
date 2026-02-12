@@ -1,13 +1,18 @@
 <%- include("partials/header") %>
 <main>
   <section id="product">
-    <h1>Nom du produit</h1>
-    <img src="/images/coffees/295432730.png" alt="Sumatra Mandheling" />
+    <h1><%= coffee.name %></h1>
+    <img src="/images/coffees/<%= coffee.reference %>.png" alt="<%= coffee.name %>" />
     <div>
-      <p>Origine Indonésie</p>
-      <p>25,99 €/kg</p>
+      <p>Origine <%= coffee.country %></p>
+      <p><%= coffee.price_kg %> €/kg</p>
     </div>
-    <p>Description du produit</p>
+    <p><%= coffee.text %></p>
+    <p>
+    <% coffee.features.forEach(feature => { %>
+      <span class="feature"><%= feature %></span>
+    <% }); %>
+    </p>
   </section>
   <a href="/catalogue" class="button"> Retour au catalogue </a>
 </main>

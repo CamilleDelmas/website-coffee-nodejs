@@ -14,8 +14,15 @@ const catalogController = {
       }
   },
   
-  catalogProduct: (req,res) => {
-    res.render("product", {css:'product'})
+  catalogProduct: async (req,res) => {
+    const coffeeId = req.params.id;
+    try {
+          const coffee = await dataMapper.findOneCoffee(coffeeId);
+          res.render("product", {css:'product', coffee})
+      } catch (error) {
+          console.log(error);
+          res.status(500).send(error.message);
+      }
   }
 }
 
