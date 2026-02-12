@@ -49,3 +49,9 @@ p:has(.feature) {
   border-radius: 2rem;
 }
 
+.big-message {
+  text-align: center;
+  p:first-child {
+    font-size: 10rem;
+  }
+}

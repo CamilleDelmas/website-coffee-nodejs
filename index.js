@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, "public")))
 app.use(router);
 
 app.use((req, res) => {
-    res.status(404);
+    res.status(404).render('404', { css: "product"});
 });
 
 // ---------------------------------------------------------------------------

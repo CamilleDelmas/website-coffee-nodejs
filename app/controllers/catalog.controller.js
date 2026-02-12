@@ -14,10 +14,13 @@ const catalogController = {
       }
   },
   
-  catalogProduct: async (req,res) => {
+  catalogProduct: async (req,res,next) => {
     const coffeeId = req.params.id;
     try {
           const coffee = await dataMapper.findOneCoffee(coffeeId);
+          if (coffee === null) {
+            return res.status(404).render('404', {css: "product"});
+          }
           res.render("product", {css:'product', coffee})
       } catch (error) {
           console.log(error);

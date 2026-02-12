@@ -35,6 +35,9 @@ const dataMapper = {
     GROUP BY coffee.id, country.name;
 `;
     const result = await client.query(sql);
+    if (result.rowCount === 0) {
+      return null;
+    }
     return result.rows[0];
   },
 };
