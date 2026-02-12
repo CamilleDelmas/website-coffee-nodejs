@@ -24,8 +24,15 @@
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
   <script defer src="/js/map.js"></script>
-  
-
+  <script defer src="/js/email.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+            (function() {
+              emailjs.init({
+                publicKey: "<%= locals.mailKey %>",
+              });
+          })();
+  </script>
   <!-- Style -->
   <link rel="stylesheet" href="/css/<%= locals.css ? `${css}`:`home` %>.css">
    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"

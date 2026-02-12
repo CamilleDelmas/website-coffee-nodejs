@@ -1,4 +1,5 @@
 import dataMapper from "../dataMapper.js";
+import 'dotenv/config';
 
 const mainController = {
   homePage: async (req, res) => {
@@ -12,7 +13,9 @@ const mainController = {
   }, 
 
   boutiquePage: (req,res) => {
-    res.render("boutique", { pageTitle: "Notre boutique", css: "boutique" });
+    const mailKey = `${process.env.PUBLICKEY}`;
+    console.log(mailKey)
+    res.render("boutique", { mailKey, pageTitle: "Notre boutique", css: "boutique" });
   }
 }
 
