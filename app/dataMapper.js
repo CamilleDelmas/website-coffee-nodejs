@@ -3,7 +3,7 @@ import client from "./db_client.js";
 const dataMapper = {
   findAllCoffees: async () => {
     // Je crée ma requete SQL sous forme de chaine de caractère
-    let sql = "";
+    let sql = "SELECT coffee.name, coffee.price_kg, coffee.reference, country.name AS country FROM coffee JOIN country ON coffee.country_id = country.id;"
     // Je déclenche la requete SQL (variable "sql") grâce à la fonction
     // "query", fournie par le module "pg" (db_client.js) qui permet
     // d'établir la connexion à la sBDD.
