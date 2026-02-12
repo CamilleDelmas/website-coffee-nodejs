@@ -8,7 +8,7 @@
   <meta name="description" content="La boutique de oCoffee des frères Pepper, spécialistes du café à Hauts-de-Cloques">
   <link rel="shortcut icon" href="/images/logo.svg" type="image/x-icon">
   <!-- Title -->
-  <title>oCoffee</title>
+  <title>oCoffee<%= locals.pageTitle? ` | ${pageTitle}` : "" %></title>
 
   <!-- Common styles -->
   <link rel="stylesheet" href="/css/reset.css">
