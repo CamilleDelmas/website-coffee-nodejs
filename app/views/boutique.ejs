@@ -150,9 +150,9 @@
     </div>
     <div class="contact-form">
     <h2>Nous contacter</h2>
-    <form id="contact-form">
+    <form id="contact-form" class="show">
         <!-- To simplify the tutorial, the value is static. -->
-        <input type="hidden" name="time" value="<% Date() %>">
+        <input type="hidden" name="time" value="<%= Date() %>">
         <label>Name</label>
         <input type="text" name="name" required>
         <label>Email</label>
@@ -163,7 +163,7 @@
         <textarea name="message" required></textarea>
         <input type="submit" value="Send">
     </form>
-    <p class="thank">Merci pour votre message !</p>
+    <p class="hide">Merci pour votre message !</p>
     </div>
   </section>
 </main>

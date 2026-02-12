@@ -59,10 +59,6 @@
   margin-block-end: 1rem;
 }
 
-.hide {
-  display: none;
-}
-
 .thank {
   display: none;
 }
@@ -75,7 +71,7 @@
   .contact-form {
     width: 30%;
   }
-  form {
+  form.show {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -100,8 +96,8 @@
       margin-block-end: 1rem;
     }
     input[type="submit"] {
-        align-self: flex-end;
-        width: max-content;
+      align-self: flex-end;
+      width: max-content;
       border-radius: 0.5rem;
       padding: 0.5rem 1rem;
       color: var(--color-cream);
@@ -113,7 +109,11 @@
         transition: all 0.3s ease-in-out;
       }
     }
+    
   }
+  .hide {
+    display: none;
+  } 
 }
 
 @media screen and (max-width: 1280px) {
