@@ -20,9 +20,17 @@
   border-bottom-right-radius: 0.5rem;
 }
 
-#product div {
-  padding: 2rem;
+#product .infos {
+  padding: 0 0 2rem 0;
   text-align: end;
+  display: flex;
+  flex-direction: row;
+  p {
+    padding: 0.5rem 2rem ;
+    margin-inline-start: 1rem;
+    background-color: var(--color-dark);
+    border-radius: 0 0 1rem 1rem;
+  }
 }
 
 #product article a {
