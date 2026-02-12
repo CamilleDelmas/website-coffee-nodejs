@@ -1,6 +1,16 @@
 import client from "./db_client.js";
 
 const dataMapper = {
+  findNewCoffees: async () => {
+    let sql = `
+    SELECT coffee.name, coffee.reference, coffee.id
+    FROM coffee
+    ORDER BY coffee.id DESC
+    LIMIT 3`;
+    const result = await client.query(sql);
+    return result.rows;
+  },
+
   findAllCoffees: async () => {
     // Je crée ma requete SQL sous forme de chaine de caractère
     let sql =

@@ -13,36 +13,17 @@
       <h2>Nouveautés</h2>
       
       <ul>
-        <li>
+        <% coffees.forEach(coffee => { %>
+          <li>
           <article>
-            <img src="/images/coffees/100955890.png" alt="Ethiopian Yirgacheffe">
+            <img src="/images/coffees/<%= coffee.reference %>.png" alt="<%= coffee.name %>">
             <div>
-              <h3>Ethiopian Yirgacheffe</h3>
-              <a class="button-outline" href="#">Voir le détail</a>
+              <h3><%= coffee.name %></h3>
+              <a class="button-outline" href="/catalogue/<%= coffee.id %>">Voir le détail</a>
             </div>
           </article>
         </li>
-
-        <li>
-          <article>
-            <img src="/images/coffees/100955890.png" alt="Ethiopian Yirgacheffe">
-            <div>
-              <h3>Ethiopian Yirgacheffe</h3>
-              <a class="button-outline" href="#">Voir le détail</a>
-            </div>
-          </article>
-        </li>
-
-        <li>
-          <article>
-            <img src="/images/coffees/100955890.png" alt="Ethiopian Yirgacheffe">
-            <div>
-              <h3>Ethiopian Yirgacheffe</h3>
-              <a class="button-outline" href="#">Voir le détail</a>
-            </div>
-          </article>
-        </li>
-
+        <% }); %>
       </ul>
     </section>
 
