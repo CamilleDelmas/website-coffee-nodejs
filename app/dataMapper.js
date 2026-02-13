@@ -43,17 +43,46 @@ const dataMapper = {
   },
 
   findAllCountries: async () => {
-    let sql =
-      "SELECT * FROM country";
+    let sql = "SELECT * FROM country";
     const result = await client.query(sql);
     return result.rows;
   },
 
   findAllFeatures: async () => {
-    let sql =
-      "SELECT * FROM feature";
+    let sql = "SELECT * FROM feature";
     const result = await client.query(sql);
     return result.rows;
+  },
+
+  findNumberCoffee: async () => {
+    let sql = "SELECT COUNT(id) AS nb_coffee FROM coffee"
+    const result = await client.query(sql);
+    return result.rows[0];
+  },
+
+  addCoffee: async (
+    id, 
+    name,
+    reference,
+    text,
+    price,
+    stock,
+    country,
+    feature,
+  ) => {
+    let sql = `
+    INSERT INTO coffee
+    ("id", "reference", "name", "text", "price_kg", "stock", "country_id")
+    VALUES
+    (${id}, '${reference}', '${name}', '${text}', '${price}', '${stock}', '${country}');
+    INSERT INTO coffee_feature
+    ("coffee_id", "feature_id")
+    VALUES
+    (${id}, ${feature});
+    `;
+    const result = await client.query(sql);
+    console.log(result.length)
+    return result.length;
   },
 };
 
