@@ -181,14 +181,14 @@
     <h2>Nous contacter</h2>
     <form id="contact-form" class="show">
         <!-- To simplify the tutorial, the value is static. -->
-        <input type="hidden" name="time" value="<%= date.toLocaleDateString("fr-FR") %>">
-        <label>Nom</label>
-        <input type="text" name="name" required>
-        <label>Email</label>
-        <input type="email" name="email" required>
-        <label>Objet</label>
-        <input type="text" name="title" required>
-        <label>Message</label>
+        <input type="hidden" name="time" value="<%= date.toLocaleDateString("fr-FR")%>">
+        <label for="name">Nom</label>
+        <input type="text" name="name" id="name" required>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required>
+        <label for="title">Objet</label>
+        <input type="text" name="title" id="title" required>
+        <label for="">Message</label>
         <textarea name="message" required></textarea>
         <input type="submit" value="Envoyer">
     </form>

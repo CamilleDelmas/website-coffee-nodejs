@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <%- include("partials/head") %>
+    <!-- Meta -->
+    <meta name="description" content="Administration oCoffee" />
+    <meta name="robots" content="noindex" />
+    <!-- Style -->
+    <link rel="stylesheet" href="/css/admin.css" />
+  </head>
+  <body>
+    <%- include("partials/header") %>
+    <main>
+      <section id="product">
+        <h1>Ajouter un café</h1>
+        <form method="POST">
+          <label for="name">Nom</label>
+          <input type="text" name="name" id="name" required />
+          
+          <label for="reference">Référence</label>
+          <input type="text" name="reference" id="reference" required />
+          
+          <label for="text">Description</label>
+          <textarea name="text" id="text" required></textarea>
+          
+          <label for="price">Prix au kg</label>
+          <input type="number" name="price" id="price" required />
+          
+          <fieldset>
+            <legend>Le produit est-il disponible en boutique ?</legend>
+          <div>
+          <label for="choice1">Oui</label>
+          <input type="radio" name="stock" id="choice1" value="true" />
+          <label for="choice2">Non</label>
+          <input type="radio" name="stock" id="choice2" value="false"/>
+          </div>
+          </fieldset>
+          <label for="country">Origine</label>
+          <select name="country" id="country" required >
+            <% countries.forEach(country => { %>
+              <option value="<%= country.name %>"><%= country.name %></option>
+            <% }); %>
+          </select>
+
+          <fieldset>
+            <legend>Choisir les caractéristiques</legend>
+              <% features.forEach(feature => { %>
+                  <input type="checkbox" id="<%= feature.name %>" name="<%= feature.name %>">
+                  <label for="<%= feature.name %>"><%= feature.name %></label>
+              <% }); %>
+          </fieldset>
+
+          <select name="country" id="country" required >
+            
+          </select>
+
+          <input type="submit" value="Envoyer" />
+        </form>
+      </section>
+      <a href="/catalogue" class="button"> Retour au catalogue </a>
+    </main>
+    <%- include("partials/footer") %>
+  </body>
+</html>

@@ -24,6 +24,7 @@ const dataMapper = {
     // de l'objet "result".
     return result.rows;
   },
+
   findOneCoffee: async (coffeeId) => {
     let sql = `
     SELECT coffee.*, country.name AS country, ARRAY_AGG(feature.name) AS features
@@ -39,6 +40,20 @@ const dataMapper = {
       return null;
     }
     return result.rows[0];
+  },
+
+  findAllCountries: async () => {
+    let sql =
+      "SELECT * FROM country";
+    const result = await client.query(sql);
+    return result.rows;
+  },
+
+  findAllFeatures: async () => {
+    let sql =
+      "SELECT * FROM feature";
+    const result = await client.query(sql);
+    return result.rows;
   },
 };
 
