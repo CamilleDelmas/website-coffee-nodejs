@@ -13,9 +13,14 @@
     <section id="product">
       <h1><%= coffee.name %></h1>
       <img src="/images/coffees/<%= coffee.reference %>.webp" alt="<%= coffee.name %>" />
-      <div class="infos">
-        <p>Origine <%= coffee.country %></p>
-        <p><%= coffee.price_kg %> €/kg</p>
+      <div class="infos1">
+        <div class="infos2">
+          <p>Origine <%= coffee.country %></p>
+          <p><%= coffee.price_kg %> €/kg</p>
+        </div>
+        <% if (coffee.stock = "false") {%>
+        <span class="stock">Rupture de stock</span>
+        <% }; %>
       </div>
       <p><%= coffee.text %></p>
       <p>
