@@ -87,7 +87,7 @@ const dataMapper = {
     const result = await client.query(sql);
     return result.rows[0];
   },
-  
+
   addCoffeeFeature: async (idCo, features) => {
     for (const feature of features) {
     let sql = `
@@ -97,7 +97,6 @@ const dataMapper = {
     (${idCo}, ${feature});
     `;
     await client.query(sql)
-
     }
   }
 };
