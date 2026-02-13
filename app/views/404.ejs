@@ -1,13 +1,25 @@
-<%- include("partials/header") %>
-<main>
-  <section id="product">
-    <h1>Page non trouvée</h1>
-    <div class="big-message">
-      <p>404</p>
-      <p>Oups, cette page n'existe pas encore sur le site !</p>
-    </div>
-  </section>
-  <a href="/catalogue" class="button"> Retour au catalogue </a>
-</main>
-
-<%- include("partials/footer") %>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <%- include("partials/head") %>
+  <!-- Meta -->
+  <meta name="description" content="Boutique oCoffee - Page non trouvée">
+  <meta name="robots" content="noindex" />
+  <!-- Style -->
+  <link rel="stylesheet" href="/css/product.css">
+</head>
+<body>
+  <%- include("partials/header") %>
+  <main>
+    <section id="product">
+      <h1>Page non trouvée</h1>
+      <div class="big-message">
+        <p>404</p>
+        <p>Oups, cette page n'existe pas encore sur le site !</p>
+      </div>
+    </section>
+    <a href="/catalogue" class="button"> Retour au catalogue </a>
+  </main>
+  <%- include("partials/footer") %>
+</body>
+</html>

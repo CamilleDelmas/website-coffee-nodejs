@@ -1,4 +1,3 @@
-
 window.onload = function() {
             const form = document.getElementById('contact-form');
             const thank = document.querySelector('p.hide')

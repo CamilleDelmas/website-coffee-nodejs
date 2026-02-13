@@ -1,3 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <%- include("partials/head") %>
+  <!-- Meta -->
+  <meta name="description" content="La boutique de oCoffee des frères Pepper, spécialistes du café à Hauts-de-Cloques">
+  <!-- Script -->
+  <script 
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin="">
+  </script>
+  <script defer src="/js/map.js"></script>
+  <script defer src="/js/email.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init({
+        publicKey: "<%= locals.mailKey %>",
+      });
+    })();
+  </script>
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+  <!-- Style -->
+  <link rel="stylesheet" href="/css/boutique.css">
+</head>
+<body>
 <%- include("partials/header") %>
 <main>
   <section id="about">
@@ -152,19 +181,21 @@
     <h2>Nous contacter</h2>
     <form id="contact-form" class="show">
         <!-- To simplify the tutorial, the value is static. -->
-        <input type="hidden" name="time" value="<%= Date() %>">
-        <label>Name</label>
+        <input type="hidden" name="time" value="<%= date.toLocaleDateString("fr-FR") %>">
+        <label>Nom</label>
         <input type="text" name="name" required>
         <label>Email</label>
         <input type="email" name="email" required>
-        <label>Subject</label>
+        <label>Objet</label>
         <input type="text" name="title" required>
         <label>Message</label>
         <textarea name="message" required></textarea>
-        <input type="submit" value="Send">
+        <input type="submit" value="Envoyer">
     </form>
     <p class="hide">Merci pour votre message !</p>
     </div>
   </section>
 </main>
 <%- include("partials/footer") %>
+</body>
+</html>

@@ -5,7 +5,7 @@ function showAllProducts() {
   const divArticle = document.querySelector(".articles");
   
   buttonShow.addEventListener("click", () => {
-    divArticle.classList.toggle("only-display-3-articles");
+    divArticle.classList.remove("only-display-3-articles");
     buttonShow.style = "display:none"
   });
 }

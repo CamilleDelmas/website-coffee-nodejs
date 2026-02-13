@@ -14,7 +14,8 @@ const mainController = {
 
   boutiquePage: (req,res) => {
     const mailKey = `${process.env.PUBLICKEY}`;
-    res.render("boutique", { mailKey, pageTitle: "Notre boutique", css: "boutique" });
+    let date = new Date();
+    res.render("boutique", { date, mailKey, pageTitle: "Notre boutique" });
   }
 }
 

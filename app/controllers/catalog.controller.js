@@ -6,7 +6,7 @@ const catalogController = {
           // 1. aller chercher les données
           const coffees = await dataMapper.findAllCoffees();
           // 2. afficher la vue
-          res.render("catalog", {pageTitle: "Catalogue", css:'catalog', coffees});
+          res.render("catalog", {pageTitle: "Catalogue", coffees});
       } catch (error) {
           // 3. gestion des cas d'erreur
           console.log(error);
@@ -19,9 +19,9 @@ const catalogController = {
     try {
           const coffee = await dataMapper.findOneCoffee(coffeeId);
           if (coffee === null) {
-            return res.status(404).render('404', {pageTitle: "Page non trouvée", css: "product"});
+            return res.status(404).render('404', {pageTitle: "Page non trouvée"});
           }
-          res.render("product", { pageTitle: `${coffee.name}`, css:'product', coffee})
+          res.render("product", { pageTitle: `${coffee.name}`, coffee})
       } catch (error) {
           console.log(error);
           res.status(500).send(error.message);
