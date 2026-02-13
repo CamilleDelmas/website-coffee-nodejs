@@ -68,22 +68,38 @@ const dataMapper = {
     price,
     stock,
     country,
-    feature,
   ) => {
     let sql = `
     INSERT INTO coffee
     ("id", "reference", "name", "text", "price_kg", "stock", "country_id")
     VALUES
-    (${id}, '${reference}', '${name}', '${text}', '${price}', '${stock}', '${country}');
+    (${id}, '${reference}', '${name}', '${text}', '${price}', '${stock}', '${country}');`;
+    const result = await client.query(sql);
+    return result.rowCount;
+  },
+
+  findLastCoffee: async () => {
+    let sql = `
+    SELECT coffee.id
+    FROM coffee
+    ORDER BY coffee.id DESC
+    LIMIT 1;`;
+    const result = await client.query(sql);
+    return result.rows[0];
+  },
+  
+  addCoffeeFeature: async (idCo, features) => {
+    for (const feature of features) {
+    let sql = `
     INSERT INTO coffee_feature
     ("coffee_id", "feature_id")
     VALUES
-    (${id}, ${feature});
+    (${idCo}, ${feature});
     `;
-    const result = await client.query(sql);
-    console.log(result.length)
-    return result.length;
-  },
+    await client.query(sql)
+
+    }
+  }
 };
 
 export default dataMapper;

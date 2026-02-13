@@ -16,8 +16,8 @@ const adminController = {
   },
 
   addCoffee: async (req, res) => {
-    let { id, name, reference, text, price, stock, country, feature } = req.body;
-
+    let { id, name, reference, text, price, stock, country, features } =
+      req.body;
     console.log(req.body);
     const count = await dataMapper.addCoffee(
       id,
@@ -27,9 +27,9 @@ const adminController = {
       price,
       stock,
       country,
-      feature,
     );
-
+    const idCo = await dataMapper.findLastCoffee();
+    await dataMapper.addCoffeeFeature(idCo.id, features);
     try {
       if (count >= 1) {
         res.redirect("/catalogue");

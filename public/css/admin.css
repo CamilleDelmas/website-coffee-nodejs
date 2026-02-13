@@ -1,3 +1,7 @@
+.form {
+  max-width: 1000px;
+  margin: 6rem auto;
+}
 form {
     display: flex;
     flex-direction: column;
@@ -38,5 +42,14 @@ form {
         transition: all 0.3s ease-in-out;
       }
     }
+    input[readonly] {
+      background-color: #2b1503;
+      cursor:not-allowed;
+    }
     
   }
+
+.button {
+  margin: 0 auto 4rem;
+  width: max-content;
+}
