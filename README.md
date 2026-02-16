@@ -11,6 +11,8 @@ Un projet d'application web dynamique développé dans le cadre de ma formation 
 - **Catalogue de cafés** : Affichage dynamique des cafés stockés en base de données
 - **Fiches produits détaillées** : Informations complètes sur chaque café (origine, caractéristiques, prix, stock)
 - **Gestion des disponibilités** : Indication de disponibilité des produits
+- **Formulaire de contact** : Envoi d'emails via EmailJS
+- **Carte interactive** : Localisation de la boutique avec Leaflet.js
 - **Architecture MVC** : Organisation claire et maintenable du code
 - **Templates dynamiques** : Utilisation d'EJS pour le rendu des pages
 - **Design responsive** : Adapté aux différentes tailles d'écran
@@ -24,6 +26,8 @@ Un projet d'application web dynamique développé dans le cadre de ma formation 
 - **EJS** (v4.0.1) : Moteur de templates
 - **dotenv** (v17.2.4) : Gestion des variables d'environnement
 - **Multer** (v2.0.2) : Middleware pour la gestion des fichiers
+- **EmailJS** : Service d'envoi d'emails côté client
+- **Leaflet.js** : Bibliothèque de cartographie interactive
 
 ## 📁 Structure du Projet
 
@@ -52,6 +56,7 @@ website-coffee-nodejs/
 - **Requêtes paramétrées** pour la sécurité SQL
 - **Variables d'environnement** pour la configuration
 - **Modules ES6** avec import/export
+- **Intégration d'APIs tierces** (EmailJS, Leaflet.js)
 
 ## 🚀 Installation et Utilisation
 
@@ -60,6 +65,7 @@ website-coffee-nodejs/
 - **Node.js** (version 14 ou supérieure)
 - **npm** (généralement inclus avec Node.js)
 - **PostgreSQL** (version 12 ou supérieure)
+- **Compte EmailJS** (pour le formulaire de contact)
 
 ### Installation
 
@@ -85,7 +91,7 @@ PGHOST=localhost
 PGUSER=votre_utilisateur
 PGPASSWORD=votre_mot_de_passe
 PGDATABASE=votre_bdd
-PUBLICKEY=votre_cle_publique
+PUBLICKEY=votre_cle_publique_emailjs
 ```
 
 4. **Créer et initialiser la base de données** :
@@ -163,7 +169,52 @@ Pour réinitialiser complètement la base de données :
 ```bash
 psql -U votre_utilisateur -d coffee_shop -f data/create_db.sql
 ```
+## 📧 Configuration EmailJS
 
+Le formulaire de contact utilise **EmailJS** pour l'envoi d'emails sans backend dédié.
+
+### Mise en place
+
+1. **Créer un compte sur [EmailJS](https://www.emailjs.com/)**
+
+2. **Configurer un service email** :
+   - Connectez votre compte email (Gmail, Outlook, etc.)
+   - Notez votre `Service ID`
+
+3. **Créer un template d'email** :
+   - Créez un template avec les variables du formulaire
+   - Notez votre `Template ID`
+
+4. **Récupérer votre clé publique** :
+   - Dans les paramètres du compte, récupérez votre `Public Key`
+
+5. **Configurer les variables d'environnement** :
+   - Ajoutez votre `PUBLICKEY` dans le fichier `.env`
+   - La clé sera injectée dans les templates EJS pour utilisation côté client
+
+### Utilisation
+
+Le formulaire de contact permet aux visiteurs de :
+- Envoyer un message directement depuis le site
+- Recevoir une confirmation d'envoi
+- Bénéficier d'une validation des champs
+
+## 🗺️ Configuration Leaflet.js
+
+La page boutique affiche une **carte interactive** montrant la localisation du Coffee Shop grâce à **Leaflet.js**.
+
+### Fonctionnalités de la carte
+
+- **Affichage de la localisation** : Marker sur l'emplacement exact de la boutique
+- **Zoom et déplacement** : Navigation fluide sur la carte
+- **Popup d'information** : Informations sur la boutique au clic
+- **Tuiles OpenStreetMap** : Fond de carte libre et gratuit
+
+### Intégration
+
+La carte est intégrée dans la page boutique avec :
+- Inclusion du CSS et JS Leaflet depuis CDN
+- Initialisation de la carte avec les coordonnées de la boutique
 
 ## 🎯 Objectifs Pédagogiques
 
