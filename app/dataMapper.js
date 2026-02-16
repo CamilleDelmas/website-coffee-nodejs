@@ -32,10 +32,10 @@ const dataMapper = {
     JOIN country ON coffee.country_id = country.id
     JOIN coffee_feature ON coffee_feature.coffee_id = coffee.id
     JOIN feature ON feature.id = coffee_feature.feature_id
-    WHERE coffee.id = ${coffeeId}
+    WHERE coffee.id = $1
     GROUP BY coffee.id, country.name;
 `;
-    const result = await client.query(sql);
+    const result = await client.query(sql, [coffeeId]);
     if (result.rowCount === 0) {
       return null;
     }
@@ -73,8 +73,8 @@ const dataMapper = {
     INSERT INTO coffee
     ("id", "reference", "name", "text", "price_kg", "stock", "country_id")
     VALUES
-    (${id}, '${reference}', '${name}', '${text}', '${price}', '${stock}', '${country}');`;
-    const result = await client.query(sql);
+    ($1, $2, $3, $4, $5, $6, $7);`;
+    const result = await client.query(sql, [id, reference, name, text, price, stock, country]);
     return result.rowCount;
   },
 
@@ -94,9 +94,9 @@ const dataMapper = {
     INSERT INTO coffee_feature
     ("coffee_id", "feature_id")
     VALUES
-    (${idCo}, ${feature});
+    ($1, $2);
     `;
-    await client.query(sql)
+    await client.query(sql, [idCo, feature])
     }
   }
 };
