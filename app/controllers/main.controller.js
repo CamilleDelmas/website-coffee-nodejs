@@ -9,7 +9,6 @@ const mainController = {
     } catch(error) {
       res.status(500).send(error.message)
     }
-    
   }, 
 
   boutiquePage: (req,res) => {

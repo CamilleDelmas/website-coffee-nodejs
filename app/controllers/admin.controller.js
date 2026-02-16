@@ -5,10 +5,7 @@ const adminController = {
     try {
       const countries = await dataMapper.findAllCountries();
       const features = await dataMapper.findAllFeatures();
-      const coffees = await dataMapper.findNumberCoffee();
-      const nbCoffee = coffees.nb_coffee;
-      const idCoffee = Number(nbCoffee) + 1;
-      res.render("admin", { countries, features, idCoffee });
+      res.render("admin", { countries, features });
     } catch (error) {
       console.log(error);
       res.status(500).send(error.message);
@@ -16,30 +13,27 @@ const adminController = {
   },
 
   addCoffee: async (req, res) => {
-    let { id, name, reference, text, price, stock, country, features } =
+    let { reference, name, text, price, stock, country, features } =
       req.body;
-    console.log(req.body);
-    const count = await dataMapper.addCoffee(
-      id,
+      try {
+        const newCoffee = await dataMapper.addCoffee(
+      reference, 
       name,
-      reference,
       text,
       price,
       stock,
       country,
     );
-    const idCo = await dataMapper.findLastCoffee();
-    await dataMapper.addCoffeeFeature(idCo.id, features);
-    try {
-      if (count >= 1) {
-        res.redirect("/catalogue");
-      } else {
-        return res.status(500).send("Aucun enregistrement créé");
-      }
-    } catch (error) {
+    // const lastCoffee = await dataMapper.findLastCoffee();
+    if (features) {
+      await dataMapper.addCoffeeFeature(newCoffee.id, features);
+    }
+    
+    res.redirect("/catalogue");
+      } catch (error) {
       return res.status(500).send(error.message);
     }
-  },
+  }
 };
 
 export default adminController;

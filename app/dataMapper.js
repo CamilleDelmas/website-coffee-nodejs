@@ -54,16 +54,9 @@ const dataMapper = {
     return result.rows;
   },
 
-  findNumberCoffee: async () => {
-    let sql = "SELECT COUNT(id) AS nb_coffee FROM coffee"
-    const result = await client.query(sql);
-    return result.rows[0];
-  },
-
   addCoffee: async (
-    id, 
-    name,
     reference,
+    name,
     text,
     price,
     stock,
@@ -71,24 +64,25 @@ const dataMapper = {
   ) => {
     let sql = `
     INSERT INTO coffee
-    ("id", "reference", "name", "text", "price_kg", "stock", "country_id")
+    ("reference", "name", "text", "price_kg", "stock", "country_id")
     VALUES
-    ($1, $2, $3, $4, $5, $6, $7);`;
-    const result = await client.query(sql, [id, reference, name, text, price, stock, country]);
-    return result.rowCount;
-  },
-
-  findLastCoffee: async () => {
-    let sql = `
-    SELECT coffee.id
-    FROM coffee
-    ORDER BY coffee.id DESC
-    LIMIT 1;`;
-    const result = await client.query(sql);
+    ($1, $2, $3, $4, $5, $6)
+    RETURNING id;`;
+    const result = await client.query(sql, [reference, name, text, price, stock, country]);
     return result.rows[0];
   },
 
-  addCoffeeFeature: async (idCo, features) => {
+  // findLastCoffee: async () => {
+  //   let sql = `
+  //   SELECT coffee.id
+  //   FROM coffee
+  //   ORDER BY coffee.id DESC
+  //   LIMIT 1;`;
+  //   const result = await client.query(sql);
+  //   return result.rows[0];
+  // },
+
+  addCoffeeFeature: async (idCoffee, features) => {
     for (const feature of features) {
     let sql = `
     INSERT INTO coffee_feature
@@ -96,7 +90,7 @@ const dataMapper = {
     VALUES
     ($1, $2);
     `;
-    await client.query(sql, [idCo, feature])
+    await client.query(sql, [idCoffee, feature])
     }
   }
 };
