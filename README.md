@@ -6,6 +6,8 @@ Un projet d'application web dynamique développé dans le cadre de ma formation 
 
 **Coffee Shop Website** est une application web pour un café fictif spécialisé dans la vente de cafés du monde entier. L'application permet de consulter un catalogue de cafés avec leurs origines, caractéristiques et prix. Le projet m'a permis de monter en compétences avec Node.js, Express et PostgreSQL.
 
+![Presentation du site](/docs/presentation-coffee.gif)
+
 ## ✨ Fonctionnalités
 
 - **Catalogue de cafés** : Affichage dynamique des cafés stockés en base de données
