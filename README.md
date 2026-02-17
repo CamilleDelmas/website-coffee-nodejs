@@ -43,6 +43,7 @@ website-coffee-nodejs/
 ├── data/
 │   └── create_db.sql     # Script de création et initialisation de la BDD
 ├── public/               # Fichiers statiques (CSS, JS, images)
+├── docs/                 # Fichiers de reflexions (MCD/MLD...)
 ├── package.json          # Dépendances du projet
 └── .env.example          # Exemple de variables d'environnement
 ```
@@ -179,11 +180,11 @@ Le formulaire de contact utilise **EmailJS** pour l'envoi d'emails sans backend 
 
 2. **Configurer un service email** :
    - Connectez votre compte email (Gmail, Outlook, etc.)
-   - Notez votre `Service ID`
+   - Notez votre `Service ID` et le renseigner dans le fichier email.js
 
 3. **Créer un template d'email** :
    - Créez un template avec les variables du formulaire
-   - Notez votre `Template ID`
+   - Notez votre `Template ID` et le renseigner dans le fichier email.js
 
 4. **Récupérer votre clé publique** :
    - Dans les paramètres du compte, récupérez votre `Public Key`
